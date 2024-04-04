@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Collectors</h1>
+
+<div id="collectors">
+  <% @collectors.each do |collector| %>
+    <%= render collector %>
+    <p>
+      <%= link_to "Show this collector", collector %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New collector", new_collector_path %>

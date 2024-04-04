@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @collector %>
+
+<div>
+  <%= link_to "Edit this collector", edit_collector_path(@collector) %> |
+  <%= link_to "Back to collectors", collectors_path %>
+
+  <%= button_to "Destroy this collector", @collector, method: :delete %>
+</div>
