@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_07_182702) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_07_185752) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_182702) do
     t.integer "attack_value"
     t.integer "defense_value"
     t.text "effect"
+    t.integer "collector_id", null: false
+    t.index ["collector_id"], name: "index_cards_on_collector_id"
   end
 
   create_table "cards_collections", id: false, force: :cascade do |t|
@@ -40,5 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_182702) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cards", "collectors"
   add_foreign_key "collections", "collectors"
 end
