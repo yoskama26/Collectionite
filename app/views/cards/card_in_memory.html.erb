@@ -1,10 +1,15 @@
-<h1>Cartes en Mémoire</h1>
+<%= form_with url: add_card_to_memory_path, method: :post do |form| %>
+  <%= form.label :name, "Nom de la carte" %>
+  <%= form.text_field :name %>
 
-<% @cards_in_memory.each do |card| %>
-  <p>
-    Nom: <%= card[:name] %><br>
-    Attaque: <%= card[:attack] %><br>
-    Défense: <%= card[:defense] %><br>
-    Effet: <%= card[:effect] %><br>
-  </p>
+  <%= form.label :attack, "Attaque" %>
+  <%= form.number_field :attack %>
+
+  <%= form.label :defense, "Défense" %>
+  <%= form.number_field :defense %>
+
+  <%= form.label :effect, "Effet" %>
+  <%= form.text_area :effect %>
+
+  <%= form.submit "Ajouter la carte en mémoire" %>
 <% end %>
