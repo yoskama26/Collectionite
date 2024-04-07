@@ -1,6 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @card %>
+<p>
+  <strong>Attack Value:</strong>
+  <%= @card.attack_value %>
+</p>
+
+<p>
+  <strong>Defense Value:</strong>
+  <%= @card.defense_value %>
+</p>
+
+<p>
+  <strong>Effect:</strong>
+  <%= @card.effect %>
+</p>
 
 <div>
   <%= link_to "Edit this card", edit_card_path(@card) %> |

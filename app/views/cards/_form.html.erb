@@ -24,4 +24,19 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  <div class="field">
+    <%= form.label :attack_value %>
+    <%= form.number_field :attack_value, id: :card_attack_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :defense_value %>
+    <%= form.number_field :defense_value, id: :card_defense_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :effect %>
+    <%= form.text_area :effect, id: :card_effect %>
+  </div>
+
 <% end %>

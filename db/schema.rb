@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_04_124723) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_07_182702) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "attack_value"
+    t.integer "defense_value"
+    t.text "effect"
   end
 
   create_table "cards_collections", id: false, force: :cascade do |t|
