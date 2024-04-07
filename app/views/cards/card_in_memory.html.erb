@@ -1,0 +1,10 @@
+<h1>Cartes en Mémoire</h1>
+
+<% @cards_in_memory.each do |card| %>
+  <p>
+    Nom: <%= card[:name] %><br>
+    Attaque: <%= card[:attack] %><br>
+    Défense: <%= card[:defense] %><br>
+    Effet: <%= card[:effect] %><br>
+  </p>
+<% end %>

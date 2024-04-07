@@ -6,6 +6,12 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
+  def add_to_session(card)
+  session[:temporary_cards] ||= []
+  session[:temporary_cards] << { name: card.name, attack: card.attack, defense: card.defense, effect: card.effect }
+end
+
+
   # GET /cards/1 or /cards/1.json
   def show
   end
@@ -17,6 +23,24 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
+  end
+  def add_card_to_memory
+    temp_card = {
+      name: params[:name],
+      attack: params[:attack],
+      defense: params[:defense],
+      effect: params[:effect]
+    }
+  
+    session[:cards_in_memory] ||= []
+
+    session[:cards_in_memory] << temp_card
+  
+    redirect_to cards_in_memory_path
+  end
+
+  def cards_in_memory
+    @cards_in_memory = session[:cards_in_memory] || []
   end
 
   # POST /cards or /cards.json
