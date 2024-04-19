@@ -1,12 +1,18 @@
 class CollectorsController < ApplicationController
   before_action :set_collector, only: %i[ show edit update destroy ]
 
-  # GET /collectors or /collectors.json
   def index
     @collectors = Collector.all
   end
 
-  # GET /collectors/1 or /collectors/1.json
+  def show
+    @collector = Collector.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @collector }
+    end
+  end
+
   def show
   end
 
@@ -19,7 +25,6 @@ class CollectorsController < ApplicationController
   def edit
   end
 
-  # POST /collectors or /collectors.json
   def create
     @collector = Collector.new(collector_params)
 
